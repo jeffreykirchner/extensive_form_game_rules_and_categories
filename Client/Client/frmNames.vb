@@ -21,17 +21,10 @@
                 Exit Sub
             End If
 
-            outstr = txtName1.Text
+            outstr = txtName1.Text & ";"
+            outstr &= txtName2.Text & ";"
 
-            If txtName2.Text <> "" Then
-                outstr &= "  " & txtName2.Text
-            End If
-
-            If txtName3.Text <> "" Then
-                outstr &= "  " & txtName3.Text
-            End If
-
-            wskClient.Send("07", outstr & ";")
+            wskClient.Send("07", outstr)
 
             temps = cumlativeEarnings(numberOfPeriods)
 

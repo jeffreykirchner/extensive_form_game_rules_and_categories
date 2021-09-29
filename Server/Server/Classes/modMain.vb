@@ -260,8 +260,9 @@ Module modMain
                 Dim outstr As String = ""
                 Dim msgtokens() As String = sinstr.Split(";")
 
-                playerList(index).takeName(msgtokens(0))
+                playerList(index).takeName(msgtokens(0), msgtokens(1))
                 checkin += 1
+
                 If checkin = numberOfPlayers Then
 
                     summaryDf.WriteLine("")
@@ -274,6 +275,12 @@ Module modMain
                         outstr = .DataGridView1.Rows(i - 1).Cells(1).Value & ","
                         outstr &= .DataGridView1.Rows(i - 1).Cells(3).Value & ","
                         summaryDf.WriteLine(outstr)
+
+                        'recruiter data file
+                        outstr = playerList(i).sid & ","
+                        outstr &= .DataGridView1.Rows(i - 1).Cells(3).Value
+
+                        recruiterDf.WriteLine(outstr)
                     Next
 
                     summaryDf.WriteLine("")
