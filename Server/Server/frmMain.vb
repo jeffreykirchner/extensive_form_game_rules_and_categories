@@ -282,14 +282,17 @@ Public Class frmMain
             filename = System.Windows.Forms.Application.StartupPath & "\datafiles\" & filename
 
             nodeDataDf = File.CreateText(filename)
+            nodeDataDf.AutoFlush = True
             str = "TimeStamp,Period,Tree,Player,Partner1,Partner2,PlayerType,DecisionNode,DecisionType,DecisionDirection,DecisionInfo,PeriodTime,"
 
             nodeDataDf.WriteLine(str)
 
+            'summary data
             filename = "summary_data_" & tempTime & ".csv"
             filename = System.Windows.Forms.Application.StartupPath & "\datafiles\" & filename
 
             summaryDf = File.CreateText(filename)
+            summaryDf.AutoFlush = True
             str = "TimeStamp,Period,Tree,Player,Partner,FinalNode,FinalDirection,MyPayoff,PartnerPayoff,MyType,MadeFinalDecision,"
 
             For i As Integer = 1 To numberOfPlayers
@@ -300,16 +303,25 @@ Public Class frmMain
 
             summaryDf.WriteLine(str)
 
+            'replay data file
             filename = "parameters_" & tempTime & ".csv"
             filename = System.Windows.Forms.Application.StartupPath & "\datafiles\" & filename
 
             replayDf = File.CreateText(filename)
+            replayDf.AutoFlush = True
 
             Dim msgtokens() As String = My.Computer.FileSystem.ReadAllText(sfile).Split(vbCrLf)
 
             For i As Integer = 0 To msgtokens.Length - 1
                 replayDf.Write(msgtokens(i))
             Next
+
+            'recruiter data file
+
+            filename = "Recruiter_Payments_" & tempTime & ".csv"
+            filename = System.Windows.Forms.Application.StartupPath & "\datafiles\" & filename
+            recruiterDf = File.CreateText(filename)
+            recruiterDf.AutoFlush = True
 
             DataGridView1.RowCount = numberOfPlayers
 
@@ -495,6 +507,7 @@ Public Class frmMain
             If nodeDataDf IsNot Nothing Then nodeDataDf.Close()
             If summaryDf IsNot Nothing Then summaryDf.Close()
             If replayDf IsNot Nothing Then replayDf.Close()
+            If recruiterDf IsNot Nothing Then recruiterDf.Close()
 
             'shut down clients
             Dim i As Integer

@@ -13,9 +13,10 @@ Module modMain
     Public checkin As Integer                        'global counter 
     Public connectionCount As Integer                'total number of connections made since server start 
     Public portNumber As Integer                     'port number sockect traffic is operation on 
-    Public nodeDataDf As StreamWriter                 'data file
+    Public nodeDataDf As StreamWriter                'data file
     Public summaryDf As StreamWriter                 'data file
-    Public replayDf As StreamWriter                 'data file
+    Public replayDf As StreamWriter                  'data file
+    Public recruiterDf As StreamWriter               'recruiter earnings upload file  
     Public frmServer As New frmMain                  'main form 
     Public filename As String                        'location of data file
     Public filename2 As String                       'location of data file
@@ -297,6 +298,7 @@ Module modMain
                     summaryDf.Close()
                     nodeDataDf.Close()
                     replayDf.Close()
+                    recruiterDf.Close()
                 End If
             End With
         Catch ex As Exception
