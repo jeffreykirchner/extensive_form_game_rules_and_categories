@@ -554,8 +554,14 @@
 
             If currentInstruction = instructionExamplePage1 Then
 
-                If nodeListInstructions(1, 1).selection <> "sub1" Then Exit Sub
-                If nodeListInstructions(3, 1).selection <> "pay3" And nodeListInstructions(3, 1).selection <> "pay2" Then Exit Sub
+                If nodeListInstructions(1, 1).selection <> "sub1" Then
+                    MessageBox.Show("Please take the requested action at the top node.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                If nodeListInstructions(3, 1).selection <> "pay3" And nodeListInstructions(3, 1).selection <> "pay2" Then
+                    MessageBox.Show("Please take the requested action at the bottom node.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
 
                 nodeListInstructions(2, 1).selection = "sub1"
 
@@ -570,8 +576,14 @@
                 frmInstructions.pageDone(currentInstruction) = True
             ElseIf currentInstruction = instructionExamplePage2 Then
 
-                If nodeListInstructions(1, 2).selection <> "pay3" Then Exit Sub
-                If nodeListInstructions(3, 2).selection <> "pay3" And nodeListInstructions(3, 2).selection <> "pay2" Then Exit Sub
+                If nodeListInstructions(1, 2).selection <> "pay3" Then
+                    MessageBox.Show("Please take the requested action at the top node.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                If nodeListInstructions(3, 2).selection <> "pay3" And nodeListInstructions(3, 2).selection <> "pay2" Then
+                    MessageBox.Show("Please take the requested action at the bottom node.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
 
                 nodeListInstructions(2, 2).selection = "pay3"
 
@@ -586,7 +598,10 @@
                 frmInstructions.pageDone(currentInstruction) = True
             ElseIf currentInstruction = instructionExamplePage3 Then
 
-                If nodeListInstructions(2, 3).selection <> "pay3" Then Exit Sub
+                If nodeListInstructions(2, 3).selection <> "pay3" Then
+                    MessageBox.Show("Please take the requested action.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
 
                 nodeListInstructions(1, 3).selection = "sub1"
                 nodeListInstructions(3, 3).selection = "pay3"
