@@ -24,6 +24,7 @@
     Public p5 As New Pen(Brushes.LightGray, 8)
     Public pYellow16 As New Pen(Brushes.Yellow, 16)
     Public pYellow6 As New Pen(Brushes.Yellow, 6)
+    Public pRed6 As New Pen(Brushes.Crimson, 6)
     Public pYellow4 As New Pen(Brushes.Yellow, 4)
     Public pYellow2 As New Pen(Brushes.Yellow, 2)
     Public pGreen6 As New Pen(Brushes.LightGreen, 6)
@@ -106,6 +107,7 @@
 
             pYellowArrow4.EndCap = Drawing2D.LineCap.DiamondAnchor
             pYellowArrow4.Alignment = Drawing2D.PenAlignment.Center
+
         Catch ex As Exception
             appEventLog_Write("errorfrmChat_Load :", ex)
         End Try
@@ -242,25 +244,36 @@
                     keyHeight = 140
                     keyWidth = 325
                     keySpace = 40
-                    top = 3
+                    top = 5
 
                     g.TranslateTransform(25, pnlMain.Height - keyHeight - 25)
 
+                    g.DrawString("Feedback", f18, Brushes.Black, 5, top - 32)
+
                     drawRoundedBox(g, 0, 0, keyWidth, keyHeight, 3, 1, Brushes.DimGray)
 
-                    g.DrawString("The most popular choice(s) among ", f2, Brushes.Black, 10, top)
+                    g.DrawString("Your selection" & If(myType(currentPeriod) = 1, "s", "") & ":", f2, Brushes.Black, 10, top)
+                    top += 15
+                    g.DrawLine(p4, 165, top, keyWidth - 20, top)
+                    g.DrawLine(pYellow6, 165, top, keyWidth - 20, top)
+
+                    Dim choiceLabelString1 As String = "The most popular choice" & If(myType(currentPeriod) = 1, "", "s")
+                    Dim choiceLabelString2 As String = "among " & modalPoolSize & " randomly chosen"
+                    Dim choiceLabelString3 As String = "Person " & If(myType(currentPeriod) = 1, "2", "1") & "s:"
+
                     top += 20
-                    g.DrawString(modalPoolSize & " randomly chosen Person " & If(myType(currentPeriod) = 1, "2", "1") & "s.", f2, Brushes.Black, 10, top)
-                    top += 25
+                    g.DrawString(choiceLabelString1, f2, Brushes.Black, 10, top)
+                    top += 20
+                    g.DrawString(choiceLabelString2, f2, Brushes.Black, 15, top)
+                    top += 20
+                    g.DrawString(choiceLabelString3, f2, Brushes.Black, 15, top)
+                    top += 15
+                    g.DrawLine(p4, 165, top, keyWidth - 20, top)
+                    g.DrawLine(pRed6, 165, top, keyWidth - 20, top)
+                    top += 10
+
                     g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you are interacting with this period " & vbCrLf & " may have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
-                    top += 40
 
-                    g.DrawLine(p4, 10, top, keyWidth - 20, top)
-
-                    top += keySpace
-                    g.DrawString("Your selection(s)", f2, Brushes.Black, 10, top - 28)
-                    g.DrawLine(p4, 10, top, keyWidth - 20, top)
-                    g.DrawLine(pYellow6, 10, top, keyWidth - 20, top)
                 ElseIf phase = periodPhase.finalResults Or phase = periodPhase.waitAfterFinalResults Then
 
                     g.DrawString("The Experiment is Over.", f18, Brushes.Black, pnlMain.Width / 2, 20, fmt)
