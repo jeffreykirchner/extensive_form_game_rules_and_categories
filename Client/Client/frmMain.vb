@@ -25,6 +25,8 @@
     Public pYellow16 As New Pen(Brushes.Yellow, 16)
     Public pYellow6 As New Pen(Brushes.Yellow, 6)
     Public pRed6 As New Pen(Brushes.Crimson, 6)
+    Public pBlue6 As New Pen(Brushes.CornflowerBlue, 6)
+    Public pOrange6 As New Pen(Brushes.Coral, 6)
     Public pYellow4 As New Pen(Brushes.Yellow, 4)
     Public pYellow2 As New Pen(Brushes.Yellow, 2)
     Public pGreen6 As New Pen(Brushes.LightGreen, 6)
@@ -269,14 +271,18 @@
                     g.DrawString(choiceLabelString3, f2, Brushes.Black, 15, top)
                     top += 15
                     g.DrawLine(p4, 165, top, keyWidth - 20, top)
-                    g.DrawLine(pRed6, 165, top, keyWidth - 20, top)
+                    If myType(currentPeriod) = 1 Then
+                        g.DrawLine(pOrange6, 165, top, keyWidth - 20, top)
+                    Else
+                        g.DrawLine(pBlue6, 165, top, keyWidth - 20, top)
+                    End If
                     top += 10
 
-                    g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you are interacting with this period " & vbCrLf & " may have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
+                        g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you are interacting with this period " & vbCrLf & " may have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
 
-                ElseIf phase = periodPhase.finalResults Or phase = periodPhase.waitAfterFinalResults Then
+                    ElseIf phase = periodPhase.finalResults Or phase = periodPhase.waitAfterFinalResults Then
 
-                    g.DrawString("The Experiment is Over.", f18, Brushes.Black, pnlMain.Width / 2, 20, fmt)
+                        g.DrawString("The Experiment is Over.", f18, Brushes.Black, pnlMain.Width / 2, 20, fmt)
 
                     keyHeight = 85
                     keyWidth = 250

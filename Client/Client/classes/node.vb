@@ -378,7 +378,11 @@
                                 phase = periodPhase.waitAfterSummaryResults) And
                                 owner <> myType(currentPeriod) Then
 
-                            g.DrawLine(.pRed6, pt1.X, pt1.Y, x, y)
+                            If myType(currentPeriod) = 1 Then
+                                g.DrawLine(.pOrange6, pt1.X, pt1.Y, x, y)
+                            Else
+                                g.DrawLine(.pBlue6, pt1.X, pt1.Y, x, y)
+                            End If
                         ElseIf phase = periodPhase.finalResults Or
                                phase = periodPhase.waitAfterFinalResults Then
 
@@ -449,8 +453,11 @@
                                  phase = periodPhase.waitAfterSummaryResults) And
                                  owner <> myType(currentPeriod) Then
 
-                                drawConnection(pt, myNodeList(subNodeId, myPeriod).pt1, g, .pRed6)
-
+                                If myType(currentPeriod) = 1 Then
+                                    drawConnection(pt, myNodeList(subNodeId, myPeriod).pt1, g, .pOrange6)
+                                Else
+                                    drawConnection(pt, myNodeList(subNodeId, myPeriod).pt1, g, .pBlue6)
+                                End If
                             ElseIf phase = periodPhase.finalResults Or
                                 phase = periodPhase.waitAfterFinalResults Then
 
