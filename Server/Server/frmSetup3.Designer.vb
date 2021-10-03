@@ -178,7 +178,8 @@ Partial Class frmSetup3
         Me.cmdMinus.Name = "cmdMinus"
         Me.cmdMinus.Size = New System.Drawing.Size(30, 23)
         Me.cmdMinus.TabIndex = 44
-        Me.cmdMinus.Text = "-"
+        Me.cmdMinus.Text = "<"
+        Me.ToolTip1.SetToolTip(Me.cmdMinus, "Previous tree")
         Me.cmdMinus.UseVisualStyleBackColor = True
         '
         'cmdPlus
@@ -188,7 +189,8 @@ Partial Class frmSetup3
         Me.cmdPlus.Name = "cmdPlus"
         Me.cmdPlus.Size = New System.Drawing.Size(30, 23)
         Me.cmdPlus.TabIndex = 45
-        Me.cmdPlus.Text = "+"
+        Me.cmdPlus.Text = ">"
+        Me.ToolTip1.SetToolTip(Me.cmdPlus, "Next Tree")
         Me.cmdPlus.UseVisualStyleBackColor = True
         '
         'cbGrid

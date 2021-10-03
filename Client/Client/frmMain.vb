@@ -278,11 +278,11 @@
                     End If
                     top += 10
 
-                        g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you are interacting with this period " & vbCrLf & " may have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
+                    g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you are interacting with this period " & vbCrLf & " may have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
 
-                    ElseIf phase = periodPhase.finalResults Or phase = periodPhase.waitAfterFinalResults Then
+                ElseIf phase = periodPhase.finalResults Or phase = periodPhase.waitAfterFinalResults Then
 
-                        g.DrawString("The Experiment is Over.", f18, Brushes.Black, pnlMain.Width / 2, 20, fmt)
+                    g.DrawString("The Experiment is Over.", f18, Brushes.Black, pnlMain.Width / 2, 20, fmt)
 
                     keyHeight = 85
                     keyWidth = 250

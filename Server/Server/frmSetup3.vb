@@ -461,7 +461,7 @@
 
             cmdPlus.Visible = True
 
-            lblPeriod.Text = "Period: " & currentTree
+            lblPeriod.Text = "Tree: " & currentTree
             currentNode = 1
             lblCurrentNode.Text = "Current Node: " & currentNode
 
