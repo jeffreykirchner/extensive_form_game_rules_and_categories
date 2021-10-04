@@ -98,6 +98,15 @@
             pYellow6.Alignment = Drawing2D.PenAlignment.Center
             pYellow6.EndCap = Drawing2D.LineCap.Triangle
 
+            pRed6.Alignment = Drawing2D.PenAlignment.Center
+            pRed6.EndCap = Drawing2D.LineCap.Triangle
+
+            pBlue6.Alignment = Drawing2D.PenAlignment.Center
+            pBlue6.EndCap = Drawing2D.LineCap.Triangle
+
+            pOrange6.Alignment = Drawing2D.PenAlignment.Center
+            pOrange6.EndCap = Drawing2D.LineCap.Triangle
+
             pYellow4.Alignment = Drawing2D.PenAlignment.Center
             pYellow4.EndCap = Drawing2D.LineCap.Triangle
 
@@ -757,7 +766,7 @@
         Try
             If Not gbResults.Visible Then Exit Sub
 
-            If currentPeriod <finalResultsEndBlock Then currentPeriod += 1
+            If currentPeriod < finalResultsEndBlock Then currentPeriod += 1
 
             updateFinalResults()
             drawScreen()
