@@ -764,6 +764,24 @@ Module modMain
                     nextToken += 1
 
                     nodeList(i, currentPeriod).tickTock = 0
+                    nodeList(i, currentPeriod).noPathHere = True
+                Next
+
+                'calc valid path
+                Dim currentNode As Integer = 1
+                For i As Integer = 1 To nodeCount(currentPeriod)
+                    Dim n As node = nodeList(currentNode, currentPeriod)
+                    n.noPathHere = False
+
+                    If n.status = "sub1" Then
+                        currentNode = n.subNode1Id
+                    ElseIf n.status = "sub2" Then
+                        currentNode = n.subNode2Id
+                    ElseIf n.status = "sub3" Then
+                        currentNode = n.subNode3Id
+                    Else
+                        Exit For
+                    End If
                 Next
 
                 .txtMessages.Text = "Press the ""Ready to Go On to Next Period"" Button."

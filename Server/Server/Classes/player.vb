@@ -344,6 +344,7 @@ Public Class player
 
                 Dim tempModalPoolSize As Integer = Math.Min(numberOfPlayers / 2, modalPoolSize)
 
+                'randomly pick players of opposite type for modal results
                 For i As Integer = 1 To tempModalPoolSize
                     Dim go As Boolean = True
 

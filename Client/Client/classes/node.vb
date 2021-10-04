@@ -59,6 +59,8 @@
     Public natureLeftSubSuccessX As Integer
     Public natureLeftSubSuccessY As Integer
 
+    Public noPathHere As Boolean = False                'during summary info, show if no path is found
+
     Public Sub New(ByRef myNodeList(,) As node)
         Try
 
@@ -86,6 +88,7 @@
 
                 Dim resultsPhase As Boolean = False
 
+
                 If phase = periodPhase.finalResults Or phase = periodPhase.waitAfterFinalResults Then
                     If myType(currentPeriod) = 1 Then
                         tempF1 = .f2Underline
@@ -99,6 +102,7 @@
                 If payoff11 >= 0 And payoff12 >= 0 Then
 
                     If status = "dead" Or
+                        noPathHere Or
                         InStr(status, "sub") Or
                         status = "pay2" Or
                         status = "pay3" Then
@@ -112,6 +116,7 @@
                 If payoff21 >= 0 And payoff22 >= 0 Then
 
                     If status = "dead" Or
+                       noPathHere Or
                        InStr(status, "sub") Or
                        status = "pay1" Or
                        status = "pay3" Then
@@ -126,6 +131,7 @@
                 If payoff31 >= 0 And payoff32 >= 0 Then
 
                     If status = "dead" Or
+                       noPathHere Or
                        InStr(status, "sub") Or
                        status = "pay1" Or
                        status = "pay2" Then
