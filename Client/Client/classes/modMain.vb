@@ -922,6 +922,8 @@ Module modMain
                             frmNames.txtName1.Text &= Chr(rand(122, 60))
                         Next
 
+                        frmNames.txtName2.Text = rand(99999999, 1)
+
                         frmNames.cmdSubmitAction(False)
                     End If
                 End If
