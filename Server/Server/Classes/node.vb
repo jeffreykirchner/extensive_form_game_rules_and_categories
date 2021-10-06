@@ -500,7 +500,9 @@
                 g.SmoothingMode = Drawing2D.SmoothingMode.None
 
                 If drawCount Then
-                    g.DrawString(count, f2, Brushes.DimGray, pt1.X - 30, pt1.Y - 40, fmt)
+                    If id > 1 Then
+                        g.DrawString(count, f2, Brushes.DimGray, pt1.X - 30, pt1.Y - 40, fmt)
+                    End If
 
                     If payoff11 >= 0 Then
                         g.DrawString(countRight, f2, Brushes.DimGray, pt3.X - 40, pt3.Y - 40, fmt)

@@ -246,7 +246,8 @@ Public Class frmMain
 
             For i As Integer = 1 To nodeCountPeriod(currentPeriod)
                 If nodeListPeriod(i, currentPeriod) IsNot Nothing Then
-                    nodeListPeriod(i, currentPeriod).drawNode(g, If(i > 1, True, False), nodeListPeriod, currentPeriod, False)
+                    'If(i > 1, True, False)
+                    nodeListPeriod(i, currentPeriod).drawNode(g, True, nodeListPeriod, currentPeriod, False)
                 End If
             Next
 
