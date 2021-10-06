@@ -887,7 +887,7 @@ Module modMain
                                             .pnlMainClickAction(nodeList(currentNode, currentPeriod).pt2.X, nodeList(currentNode, currentPeriod).pt2.Y)
                                         End If
                                     Case 3
-                                        If nodeList(currentNode, currentPeriod).payoff21 >= 0 Then
+                                        If nodeList(currentNode, currentPeriod).payoff31 >= 0 Then
                                             .pnlMainClickAction(nodeList(currentNode, currentPeriod).pt4.X, nodeList(currentNode, currentPeriod).pt4.Y)
                                         End If
                                     Case 4
