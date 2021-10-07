@@ -90,6 +90,7 @@ StyleCopReport.xml
 *.exe
 /Logs/*
 /Datafiles/*
+/Parameters/*
 
 # Chutzpah Test files
 _Chutzpah*
