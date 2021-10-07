@@ -246,7 +246,8 @@ Public Class frmMain
 
             For i As Integer = 1 To nodeCountPeriod(currentPeriod)
                 If nodeListPeriod(i, currentPeriod) IsNot Nothing Then
-                    nodeListPeriod(i, currentPeriod).drawNode(g, If(i > 1, True, False), nodeListPeriod, currentPeriod, False)
+                    'If(i > 1, True, False)
+                    nodeListPeriod(i, currentPeriod).drawNode(g, True, nodeListPeriod, currentPeriod, False)
                 End If
             Next
 
@@ -390,45 +391,55 @@ Public Class frmMain
             Next
 
 
-            'randomize first period roles
-            'set #1 type
-            For j As Integer = 1 To numberOfPlayers / 2
-                Dim go As Boolean = True
+            'randomize type 1 roles
+            For period As Integer = 1 To numberOfPeriods
+                For j As Integer = 1 To numberOfPlayers / 2
+                    Dim go As Boolean = True
 
-                While go
-                    Dim p As Integer = rand(numberOfPlayers, 1)
+                    While go
+                        Dim p As Integer = rand(numberOfPlayers, 1)
 
-                    If playerList(p).myType(1) = -1 Then
-                        playerList(p).myType(1) = 1
-                        go = False
-                    End If
-                End While
+                        If playerList(p).myType(period) = -1 Then
+                            playerList(p).myType(period) = 1
+                            go = False
+                        End If
+                    End While
+                Next
             Next
 
-            'set #2 type
-            For j As Integer = 1 To numberOfPlayers / 2
-                Dim go As Boolean = True
-
-                While go
-                    Dim p As Integer = rand(numberOfPlayers, 1)
-
-                    If playerList(p).myType(1) = -1 Then
-                        playerList(p).myType(1) = 2
-                        go = False
-                    End If
-                End While
-            Next
-
-            'switch roles back and forth
-            For i As Integer = 2 To numberOfPeriods
+            'set unused types to type 2
+            For period As Integer = 1 To numberOfPeriods
                 For j As Integer = 1 To numberOfPlayers
-                    If playerList(j).myType(i - 1) = 1 Then
-                        playerList(j).myType(i) = 2
-                    Else
-                        playerList(j).myType(i) = 1
+                    If playerList(j).myType(period) = -1 Then
+                        playerList(j).myType(period) = 2
                     End If
                 Next
             Next
+
+            ''set #2 type
+            'For j As Integer = 1 To numberOfPlayers / 2
+            '    Dim go As Boolean = True
+
+            '    While go
+            '        Dim p As Integer = rand(numberOfPlayers, 1)
+
+            '        If playerList(p).myType(1) = -1 Then
+            '            playerList(p).myType(1) = 2
+            '            go = False
+            '        End If
+            '    End While
+            'Next
+
+            'switch roles back and forth
+            'For i As Integer = 2 To numberOfPeriods
+            '    For j As Integer = 1 To numberOfPlayers
+            '        If playerList(j).myType(i - 1) = 1 Then
+            '            playerList(j).myType(i) = 2
+            '        Else
+            '            playerList(j).myType(i) = 1
+            '        End If
+            '    Next
+            'Next
 
             'randomize partners by period
             For i As Integer = 1 To numberOfPeriods
