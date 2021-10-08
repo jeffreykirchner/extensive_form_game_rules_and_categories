@@ -8,9 +8,9 @@
 
     Dim example1Text As String = "Person 2 chose the arrow pointing to Person 1." & vbCrLf & vbCrLf &
                                  "The result is that:" & vbCrLf & "Person 1 earns #payoff1#." & vbCrLf & "Person 2 earns #payoff2#."
-    Dim example2Text As String = "Person 2 chose the payoff.  Person 1 also chose the payoff on the first node; therefore, Person 1 determined the payoffs.  Also, note that we did not use Person 1's choice on their second node, since we reached a payoff earlier in the decision problem." & vbCrLf & vbCrLf &
+    Dim example2Text As String = "Person 2 chose the arrow pointing to the payoff.  Person 1 also chose the arrow pointing to the payoff on the first node; therefore, Person 1 determined the payoffs.  Also, note that we did not use Person 1's choice on their second node, since we reached a payoff earlier in the decision problem." & vbCrLf & vbCrLf &
                                   "The result is that:" & vbCrLf & "Person 1 earns #payoff1#." & vbCrLf & "Person 2 earns #payoff2#."
-    Dim example3Text As String = "Person 1 chose the arrow pointing to Person 2.  Person 2 chose the payoff; therefore, Person 2 determined the payoffs.  Also, note that we did not use Person 1's choice on their second node, since we reached a payoff earlier in the decision problem." & vbCrLf & vbCrLf &
+    Dim example3Text As String = "Person 1 chose the arrow pointing to Person 2.  Person 2 chose the arrow pointing to the payoff; therefore, Person 2 determined the payoffs.  Also, note that we did not use Person 1's choice on their second node, since we reached a payoff earlier in the decision problem." & vbCrLf & vbCrLf &
                                  "The result is that:" & vbCrLf & "Person 1 earns #payoff1#." & vbCrLf & "Person 2 earns #payoff2#."
     Dim continueText As String = vbCrLf & vbCrLf & "Continue to the next page of instructions."
 
