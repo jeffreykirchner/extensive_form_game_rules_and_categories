@@ -259,7 +259,7 @@
 
                     g.TranslateTransform(25, pnlMain.Height - keyHeight - 25)
 
-                    g.DrawString("Feedback", f18, Brushes.Black, 5, top - 32)
+                    g.DrawString("Feedback from this past period", f18, Brushes.Black, 5, top - 32)
 
                     drawRoundedBox(g, 0, 0, keyWidth, keyHeight, 3, 1, Brushes.DimGray)
 
@@ -268,8 +268,8 @@
                     g.DrawLine(p4, 165, top, keyWidth - 20, top)
                     g.DrawLine(pYellow6, 165, top, keyWidth - 20, top)
 
-                    Dim choiceLabelString1 As String = "The most popular choice" & If(myType(currentPeriod) = 1, "", "s")
-                    Dim choiceLabelString2 As String = "among " & modalPoolSize & " randomly chosen"
+                    Dim choiceLabelString1 As String = "The majority choice" & If(myType(currentPeriod) = 1, "", "s") & " among"
+                    Dim choiceLabelString2 As String = modalPoolSize & " randomly chosen"
                     Dim choiceLabelString3 As String = "Person " & If(myType(currentPeriod) = 1, "2", "1") & "s:"
 
                     top += 20
@@ -287,7 +287,7 @@
                     End If
                     top += 10
 
-                    g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you are interacting with this period " & vbCrLf & " may have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
+                    g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you interacted with may " & vbCrLf & " have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
 
                 ElseIf phase = periodPhase.finalResults Or phase = periodPhase.waitAfterFinalResults Then
 
