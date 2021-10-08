@@ -27,6 +27,8 @@ Public Class player
     Public cumlativeEarnings(100) as Double
     Public instructionLength(100) As Double
 
+    Public decisionLength(100) As Double         'length of time in milliseconds to make submit choices
+
     Public lastIDSent As String
     Public lastMessageSent As String
 
@@ -428,6 +430,18 @@ Public Class player
                         outstr &= "False,"
                     End If
                 End If
+
+                outstr &= decisionLength(period) & ","
+
+                'store node results
+                For i As Integer = 1 To nodeCountPeriod(period)
+                    outstr &= nodeList(i, period).selection & ","
+                Next
+
+                'fill in spacers
+                For i As Integer = nodeCountPeriod(period) + 1 To maxNodeCount
+                    outstr &= ","
+                Next
 
                 For i As Integer = 1 To numberOfPlayers
                     outstr &= sawModalResponse(i, period) & ","

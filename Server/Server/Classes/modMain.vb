@@ -64,6 +64,8 @@ Module modMain
     Public nodeListBase(100, 100) As node  'ID/Tree
     Public nodeCountBase(100) As Integer
 
+    Public maxNodeCount As Integer 'highest number of nodes in a period
+
     Public periodList(100) As period
     Public treeCount As Integer
     Public modalPoolSize As Integer
@@ -394,6 +396,10 @@ Module modMain
 
                 .DataGridView1.Rows(index - 1).Cells(2).Value = "Waiting"
 
+                Dim ts As TimeSpan
+                ts = Now - periodStart
+                playerList(index).decisionLength(currentPeriod) = ts.TotalMilliseconds
+
                 Dim tempP1 As Integer
                 Dim tempP2 As Integer
                 If playerList(index).myType(currentPeriod) = 1 Then
@@ -444,9 +450,7 @@ Module modMain
                     str &= tempChoice & ","
                     str &= tempDecisionInfo & ","
 
-                    Dim ts As TimeSpan
-                    ts = Now - periodStart
-                    str &= ts.TotalMilliseconds & ","
+                    str &= playerList(index).decisionLength(currentPeriod) & ","
 
                     nodeDataDf.WriteLine(str)
                 Next

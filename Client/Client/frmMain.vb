@@ -287,7 +287,7 @@
                     End If
                     top += 10
 
-                    g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you are interacting with may " & vbCrLf & " have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
+                    g.DrawString("The Person " & If(myType(currentPeriod) = 1, "2", "1") & " you interacted with may " & vbCrLf & " have made different choices.", f3, Brushes.DimGray, keyWidth / 2, top, fmt)
 
                 ElseIf phase = periodPhase.finalResults Or phase = periodPhase.waitAfterFinalResults Then
 

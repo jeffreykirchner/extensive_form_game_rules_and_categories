@@ -274,6 +274,14 @@ Public Class frmMain
 
             Cursor = Cursors.WaitCursor
 
+            maxNodeCount = 0
+            For i As Integer = 1 To treeCount
+                nodeCountBase(i) = getINI(sfile, "nodeCount", CStr(i))
+                If nodeCountBase(i) > maxNodeCount Then
+                    maxNodeCount = nodeCountBase(i)
+                End If
+            Next
+
             'define timestamp for recording data
             tempTime = DateTime.Now.Month & "-" & DateTime.Now.Day & "-" & DateTime.Now.Year & "_" & DateTime.Now.Hour & _
                      "_" & DateTime.Now.Minute & "_" & DateTime.Now.Second
@@ -294,7 +302,11 @@ Public Class frmMain
 
             summaryDf = File.CreateText(filename)
             summaryDf.AutoFlush = True
-            str = "TimeStamp,Period,Tree,Player,Partner,FinalNode,FinalDirection,MyPayoff,PartnerPayoff,MyType,MadeFinalDecision,"
+            str = "TimeStamp,Period,Tree,Player,Partner,FinalNode,FinalDirection,MyPayoff,PartnerPayoff,MyType,MadeFinalDecision,PeriodTime,"
+
+            For i As Integer = 1 To maxNodeCount
+                str &= "Node" & i & "Choice,"
+            Next
 
             For i As Integer = 1 To numberOfPlayers
                 str &= "ModalGroupP" & i & ","
@@ -365,9 +377,7 @@ Public Class frmMain
 
             showInstructions = getINI(sfile, "gameSettings", "showInstructions")
 
-            For i As Integer = 1 To treeCount
-                nodeCountBase(i) = getINI(sfile, "nodeCount", CStr(i))
-            Next
+
 
             setupNodesBase(sfile)
             setupNodesPeriod(sfile)
