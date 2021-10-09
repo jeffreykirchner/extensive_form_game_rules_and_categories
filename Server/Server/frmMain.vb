@@ -292,7 +292,7 @@ Public Class frmMain
 
             nodeDataDf = File.CreateText(filename)
             nodeDataDf.AutoFlush = True
-            str = "TimeStamp,Period,Tree,Player,Partner1,Partner2,PlayerType,DecisionNode,DecisionType,DecisionDirection,DecisionInfo,PeriodTime,"
+            str = "TimeStamp,Period,Tree,Player,Partner1,Partner2,PlayerType,DecisionNode,DecisionType,DecisionDirection,DecisionInfo,PeriodTime,FinalNode,FinalDirection"
 
             nodeDataDf.WriteLine(str)
 
@@ -348,6 +348,12 @@ Public Class frmMain
                 playerList(i).earnings = 0
                 playerList(i).roundEarnings = 0
 
+                For j As Integer = 1 To 10
+                    For k As Integer = 1 To numberOfPeriods
+                        playerList(i).nodeDataString(j, k) = ""
+                    Next
+                Next
+
                 DataGridView1.Rows(i - 1).Cells(0).Value = i
                 DataGridView1.Rows(i - 1).Cells(1).Value = playerList(i).computerName
 
@@ -377,8 +383,6 @@ Public Class frmMain
 
             showInstructions = getINI(sfile, "gameSettings", "showInstructions")
 
-
-
             setupNodesBase(sfile)
             setupNodesPeriod(sfile)
 
@@ -399,7 +403,6 @@ Public Class frmMain
                     playerList(i).modalResponse(j) = ""
                 Next
             Next
-
 
             'randomize type 1 roles
             For period As Integer = 1 To numberOfPeriods

@@ -428,8 +428,6 @@ Module modMain
 
                     takeChoice2(tempChoice, tempNode, tempDecisionType, tempDecisionInfo, nodeListPeriod)
 
-                    '"Period,Tree,Player,Partner1,Partner2,PlayerType,DecisionNode,DecisionType,DecisionDirection,DecisionInfo,PeriodTime,"
-
                     Dim str As String = ""
 
                     str &= .tempTime & ","
@@ -452,7 +450,8 @@ Module modMain
 
                     str &= playerList(index).decisionLength(currentPeriod) & ","
 
-                    nodeDataDf.WriteLine(str)
+                    'nodeDataDf.WriteLine(str)
+                    playerList(index).nodeDataString(i, currentPeriod) = str
                 Next
 
                 'send results
@@ -551,6 +550,7 @@ Module modMain
                         For i As Integer = 1 To numberOfPeriods
                             For j As Integer = 1 To numberOfPlayers
                                 playerList(j).writeSummaryData(i)
+                                playerList(j).writeNodeData(i)
                             Next
                         Next
                     ElseIf currentPeriod = numberOfPeriods Then

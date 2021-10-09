@@ -29,6 +29,8 @@ Public Class player
 
     Public decisionLength(100) As Double         'length of time in milliseconds to make submit choices
 
+    Public nodeDataString(10, 100) As String        'node/period
+
     Public lastIDSent As String
     Public lastMessageSent As String
 
@@ -450,6 +452,30 @@ Public Class player
                 outstr &= """" & modalResponse(period) & """" & ","
 
                 summaryDf.WriteLine(outstr)
+            End With
+        Catch ex As Exception
+            appEventLog_Write("error :", ex)
+        End Try
+    End Sub
+
+    Public Sub writeNodeData(period As Integer)
+        Try
+            With frmServer
+                For i As Integer = 1 To nodeCountPeriod(period)
+                    If nodeDataString(i, period) <> "" Then
+                        Dim str As String = nodeDataString(i, period)
+
+                        If myType(period) = 1 Then
+                            str &= finalNode(period) & ","
+                            str &= nodeList(finalNode(period), period).status & ","
+                        Else
+                            str &= finalNode(period) & ","
+                            str &= playerList(partnerList(period)).nodeList(finalNode(period), period).status & ","
+                        End If
+
+                        nodeDataDf.WriteLine(str)
+                    End If
+                Next
             End With
         Catch ex As Exception
             appEventLog_Write("error :", ex)
