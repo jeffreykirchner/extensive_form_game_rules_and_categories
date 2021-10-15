@@ -371,7 +371,7 @@
 
     Private Sub cmdCopyPrevious_Click(sender As System.Object, e As System.EventArgs) Handles cmdCopyPrevious.Click
         Try
-            If currentTree = 1 Then Exit Sub
+            'If currentTree = 1 Then Exit Sub
 
             Dim originalTree = InputBox("Which tree do you want to copy?", "Copy Tree", currentTree - 1)
 
