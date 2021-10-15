@@ -312,7 +312,9 @@ Public Class frmMain
                 str &= "ModalGroupP" & i & ","
             Next
 
-            str &= "ModalShown,"
+            For i As Integer = 1 To maxNodeCount
+                str &= "ModalShownNode" & i & ","
+            Next
 
             summaryDf.WriteLine(str)
 
@@ -331,7 +333,7 @@ Public Class frmMain
 
             'recruiter data file
 
-            filename = "Recruiter_Payments_" & tempTime & ".csv"
+            filename = "recruiter_payments_" & tempTime & ".csv"
             filename = System.Windows.Forms.Application.StartupPath & "\datafiles\" & filename
             recruiterDf = File.CreateText(filename)
             recruiterDf.AutoFlush = True

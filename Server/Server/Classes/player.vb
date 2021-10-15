@@ -379,9 +379,9 @@ Public Class player
                 For i As Integer = 1 To nodeCountPeriod(currentPeriod)
                     If nodeList(i, currentPeriod).owner = myType(currentPeriod) Then
                         nodeList(i, currentPeriod).status = nodeList(i, currentPeriod).selection
+                        modalResponse(currentPeriod) &= ","           'spacer
                     Else
-                        If modalResponse(currentPeriod) <> "" Then modalResponse(currentPeriod) &= ", "
-                        modalResponse(currentPeriod) &= "Node " & i & ": " & nodeList(i, currentPeriod).status
+                        modalResponse(currentPeriod) &= nodeList(i, currentPeriod).status & "," 'store modal datafile response
                     End If
                 Next
 
@@ -449,7 +449,7 @@ Public Class player
                     outstr &= sawModalResponse(i, period) & ","
                 Next
 
-                outstr &= """" & modalResponse(period) & """" & ","
+                outstr &= modalResponse(period)
 
                 summaryDf.WriteLine(outstr)
             End With

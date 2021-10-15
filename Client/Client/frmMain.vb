@@ -268,7 +268,7 @@
                     g.DrawLine(p4, 165, top, keyWidth - 20, top)
                     g.DrawLine(pYellow6, 165, top, keyWidth - 20, top)
 
-                    Dim choiceLabelString1 As String = "The majority choice" & If(myType(currentPeriod) = 1, "", "s") & " among"
+                    Dim choiceLabelString1 As String = "The most common choice" & If(myType(currentPeriod) = 1, "", "s") & " among"
                     Dim choiceLabelString2 As String = modalPoolSize & " randomly chosen"
                     Dim choiceLabelString3 As String = "Person " & If(myType(currentPeriod) = 1, "2", "1") & "s:"
 
