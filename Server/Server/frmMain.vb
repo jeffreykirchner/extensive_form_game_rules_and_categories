@@ -292,7 +292,7 @@ Public Class frmMain
 
             nodeDataDf = File.CreateText(filename)
             nodeDataDf.AutoFlush = True
-            str = "TimeStamp,Period,Tree,Player,Partner1,Partner2,PlayerType,DecisionNode,DecisionType,DecisionDirection,DecisionInfo,PeriodTime,FinalNode,FinalDirection"
+            str = "TimeStamp,Period,Tree,Player,UniquePlayerID,Partner1,Partner2,PlayerType,DecisionNode,DecisionType,DecisionDirection,DecisionInfo,PeriodTime,FinalNode,FinalDirection"
 
             nodeDataDf.WriteLine(str)
 
@@ -302,7 +302,7 @@ Public Class frmMain
 
             summaryDf = File.CreateText(filename)
             summaryDf.AutoFlush = True
-            str = "TimeStamp,Period,Tree,Player,Partner,FinalNode,FinalDirection,MyPayoff,PartnerPayoff,MyType,MadeFinalDecision,PeriodTime,"
+            str = "TimeStamp,Period,Tree,Player,UniquePlayerID,Partner,FinalNode,FinalDirection,MyPayoff,PartnerPayoff,MyType,MadeFinalDecision,PeriodTime,"
 
             For i As Integer = 1 To maxNodeCount
                 str &= "Node" & i & "Choice,"
