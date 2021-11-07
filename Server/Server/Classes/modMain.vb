@@ -434,6 +434,8 @@ Module modMain
                     str &= currentPeriod & ","
                     str &= periodList(currentPeriod).tree & ","
                     str &= index & ","
+                    str &= .tempTime & "__" & index & ","
+
                     If playerList(index).myType(currentPeriod) = 1 Then
                         str &= ","
                         str &= playerList(index).partnerList(currentPeriod) & ","

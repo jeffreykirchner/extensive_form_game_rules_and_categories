@@ -405,6 +405,7 @@ Public Class player
                 outstr &= period & ","
                 outstr &= periodList(period).tree & ","
                 outstr &= inumber & ","
+                outstr &= .tempTime & "__" & inumber & ","
                 outstr &= partnerList(period) & ","
 
                 If myType(period) = 1 Then
