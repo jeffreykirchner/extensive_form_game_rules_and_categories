@@ -93,7 +93,7 @@ Partial Class frmMain
         Me.TabControl1.Location = New System.Drawing.Point(2, 2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1014, 731)
+        Me.TabControl1.Size = New System.Drawing.Size(1016, 766)
         Me.TabControl1.TabIndex = 0
         '
         'Main
@@ -112,7 +112,7 @@ Partial Class frmMain
         Me.Main.Location = New System.Drawing.Point(4, 25)
         Me.Main.Name = "Main"
         Me.Main.Padding = New System.Windows.Forms.Padding(3)
-        Me.Main.Size = New System.Drawing.Size(1006, 702)
+        Me.Main.Size = New System.Drawing.Size(1008, 737)
         Me.Main.TabIndex = 0
         Me.Main.Text = "Main"
         '
@@ -120,7 +120,7 @@ Partial Class frmMain
         '
         Me.llESI.AutoSize = True
         Me.llESI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llESI.Location = New System.Drawing.Point(5, 649)
+        Me.llESI.Location = New System.Drawing.Point(5, 694)
         Me.llESI.Name = "llESI"
         Me.llESI.Size = New System.Drawing.Size(409, 16)
         Me.llESI.TabIndex = 32
@@ -130,7 +130,7 @@ Partial Class frmMain
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(652, 649)
+        Me.Label7.Location = New System.Drawing.Point(652, 694)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(347, 32)
         Me.Label7.TabIndex = 31
@@ -140,7 +140,7 @@ Partial Class frmMain
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(5, 668)
+        Me.Label8.Location = New System.Drawing.Point(5, 713)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(234, 16)
         Me.Label8.TabIndex = 30
@@ -151,7 +151,7 @@ Partial Class frmMain
         Me.cmdPrint.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdPrint.Image = CType(resources.GetObject("cmdPrint.Image"), System.Drawing.Image)
         Me.cmdPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdPrint.Location = New System.Drawing.Point(476, 650)
+        Me.cmdPrint.Location = New System.Drawing.Point(476, 695)
         Me.cmdPrint.Name = "cmdPrint"
         Me.cmdPrint.Size = New System.Drawing.Size(73, 34)
         Me.cmdPrint.TabIndex = 29
@@ -367,7 +367,7 @@ Partial Class frmMain
         '
         'txtMessages
         '
-        Me.txtMessages.Location = New System.Drawing.Point(1, 687)
+        Me.txtMessages.Location = New System.Drawing.Point(1, 732)
         Me.txtMessages.Multiline = True
         Me.txtMessages.Name = "txtMessages"
         Me.txtMessages.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
@@ -392,7 +392,7 @@ Partial Class frmMain
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(997, 512)
+        Me.DataGridView1.Size = New System.Drawing.Size(997, 557)
         Me.DataGridView1.TabIndex = 25
         '
         'Column1
@@ -565,7 +565,7 @@ Partial Class frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1016, 734)
+        Me.ClientSize = New System.Drawing.Size(1017, 769)
         Me.ControlBox = False
         Me.Controls.Add(Me.TabControl1)
         Me.Cursor = System.Windows.Forms.Cursors.Default
